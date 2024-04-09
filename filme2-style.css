@@ -1,0 +1,183 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav{
+    display: flex;
+    padding: 2% 3%;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-links{
+  flex: 1; /*ia cat mai mult spatiu in containerul de flex astfel incat spatiul sa fie distribuit uniform pt fiecare element*/
+  text-align: right;
+}
+.nav-links ul li{
+  list-style: none;/*sa n avem bullets etc*/
+  display: inline-block; /*sa le faca pe orizontala*/
+  padding: 8px 12px;/*sa aiba spatiu intre ele*/
+  position: relative;
+  
+}
+.nav-links ul li a{
+  color: azure;
+  text-decoration: none; /*sa nu mi puna linia*/
+  font-size: 20px;
+  
+}
+
+.nav-links ul li::after{
+  content: '';/*fara asta nu mai merge nimic*/
+  width: 0%; /*setam cu0 sa n apara, vr sa apara la hover */
+  height: 2px;
+  background: #e65c3a;
+  display: block;/*creaza linia */
+  margin: auto; /*centreaza ca sa plece linia din centru spre margini*/
+  transition: 0.5s;
+}
+.nav-links ul li:hover::after{
+  width: 100%;
+}
+.dropdown{
+    display: none; /* ascunde */
+    position: absolute;/*ca sa nu strice pozitionarea meniului, sa dea dropdown in jos*/
+    left: 0;
+    top: 100%;
+    background-color: rgb(53, 59, 122);
+    text-align: center;
+    z-index:1; /*ca sa fie meniul dropdown deasupra la poze cand tin cursorul*/
+}
+.nav-links ul li:hover .dropdown{
+    display: block; 
+}
+.dropdown ul{
+    display: block;
+    margin: 10px;
+}
+.dropdown ul li{
+    width: 100px;
+    padding: 10px;
+}
+.dropdown ul li:nth-of-type(1) {
+    background-color: rgb(45, 8, 110);
+ }
+ .dropdown ul li:nth-of-type(2) {
+     background-color: rgb(64,85,131);
+  }
+body{
+    background-color: rgb(64,85,131);
+}
+.eroi {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .hero {
+    width: 30%;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* sa nu iasa tranzitia din imagine */
+    transition: transform 0.3s ease; /*transform ca sa fac scale*/
+  
+  }
+  
+  .hero:hover {
+    transform: scale(1.05);/*schimbam marimea la 105 %*/
+  }
+  
+  .hero h2 {
+    color: white;
+  
+  }
+  
+  .hero audio {
+    margin-bottom: 10px;
+  }
+
+  
+  .hero p {
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+  }
+  
+  .hero:before {
+    content: '';
+    position: absolute; /*se pozitioneaza unde trebuie*/
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    z-index: 0;
+    opacity: 0.8; /* opacitate initiala */
+  }
+  
+  .hero:hover:before {
+    opacity: 0.5; /* opacitate mai mica in hover*/
+  }
+  
+  #thor:before {
+    background-image: url('poze/thor.jpg');
+  }
+  
+  #ironman:before {
+    background-image: url('poze/iron.webp');
+  }
+  
+  #blackpanther:before {
+    background-image: url('poze/panther2.jpg');
+  }
+
+  #hulk:before {
+    background-image: url('poze/hulk2.jpg');
+  }
+  #spiderman:before {
+    background-image: url('poze/spiderman.webp');
+  }
+  #cpt:before {
+    background-image: url('poze/cpt2.webp');
+  }
+  #widow:before {
+    background-image: url('poze/widow2.jpg');
+  }
+  #gotg:before {
+    background-image: url('poze/gotg.jpg');
+  }
+  #marvel:before {
+    background-image: url('poze/marvel.jpg');
+  }
+  h1{
+    text-align: center;
+    color: white;
+  }
+
+  /* pentru ecrane mici */
+@media only screen and (max-width: 768px) {
+  .eroi {
+      flex-direction: column; /* schimb directia flexului ca sa afisez eroii în coloane */
+      align-items: center;
+  }
+
+  .hero {
+      width: 90%; /* sa fie unul singur pe linie */
+      margin-bottom: 20px; /* spacing eroi */
+  }
+  nav {
+    flex-direction: column;
+    padding: 2% 0;
+}
+}
+
+

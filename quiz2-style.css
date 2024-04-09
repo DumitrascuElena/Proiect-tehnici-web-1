@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia';
+}
+
+    html{
+        background-image: linear-gradient(rgba(110, 133, 183, 0.5),
+        rgba(136, 157, 201, 0.5)),url(./poze/rocket1.webp);
+        background-size:cover;
+    }
+
+   
+nav{
+    display: flex;
+    padding: 2% 3%;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block; /*sa le faca pe orizontala*/
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a{
+    color: azure;
+    text-decoration: none; /*sa nu mi puna linia*/
+    font-size: 20px;
+    
+}
+
+.nav-links ul li::after{
+    content: '';
+    width: 0%; 
+    height: 2px;
+    background: #e65c3a;
+    display: block;
+    margin: auto; 
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+.dropdown{
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    background-color: rgb(53, 59, 122);
+    text-align: center;
+}
+.nav-links ul li:hover .dropdown{
+    display: block; 
+}
+.dropdown ul{
+    display: block;
+    margin: 10px;
+}
+.dropdown ul li{
+    width: 100px;
+    padding: 10px;
+}
+.dropdown ul li:nth-of-type(1) {
+    background-color: rgb(45, 8, 110);
+ }
+ .dropdown ul li:nth-of-type(2) {
+     background-color: rgb(5, 20, 96);
+  }
+.text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+p {
+    color: rgb(223, 229, 248);
+    font-weight: bold;
+    text-align: center; 
+    margin: 10px;
+    text-shadow: 2px 1px;
+    font-size: 25px;
+}
+iframe{
+    
+    border-radius: 20px;
+    color: rgb(229, 237, 245);
+    padding: 20px 20px;
+    
+}
+
+@media only screen and (max-width: 768px) {
+    html {
+        background-size: contain; /* Imaginea de fundal sa incapa complet în container */
+    }
+    nav {
+        flex-direction: column;
+        padding: 2% 0;
+    }
+}

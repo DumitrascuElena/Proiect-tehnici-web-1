@@ -1,0 +1,176 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.stiri{
+    min-height: 100vh;
+    width: 100%;
+    background-color: rgb(64, 85, 131);
+}
+nav{
+    display: flex;
+    padding: 2% 3%;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-links{
+    flex: 1; /*ia cat mai mult spatiu in containerul de flex astfel incat spatiul sa fie distribuit uniform pt fiecare element*/
+    text-align: right;
+  }
+  .nav-links ul li{
+    list-style: none;/*sa n avem bullets etc*/
+    display: inline-block; /*sa le faca pe orizontala*/
+    padding: 8px 12px;/*sa aiba spatiu intre ele*/
+    position: relative;
+    
+  }
+  .nav-links ul li a{
+    color: azure;
+    text-decoration: none; /*sa nu mi puna linia*/
+    font-size: 20px;
+    
+  }
+  
+  .nav-links ul li::after{
+    content: '';/*fara asta nu mai merge nimic*/
+    width: 0%; /*setam cu0 sa n apara, vr sa apara la hover */
+    height: 2px;
+    background: #e65c3a;
+    display: block;/*creaza linia */
+    margin: auto; /*centreaza ca sa plece linia din centru spre margini*/
+    transition: 0.5s;
+  }
+  .nav-links ul li:hover::after{
+    width: 100%;
+  }
+  .dropdown{
+      display: none; /* ascunde */
+      position: absolute;/*ca sa nu strice pozitionarea meniului, sa dea dropdown in jos*/
+      left: 0;
+      top: 100%;
+      background-color: rgb(53, 59, 122);
+      text-align: center;
+      z-index:1; /*ca sa fie meniul dropdown deasupra la poze cand tin cursorul*/
+  }
+  .nav-links ul li:hover .dropdown{
+      display: block; 
+  }
+  .dropdown ul{
+      display: block;
+      margin: 10px;
+  }
+  .dropdown ul li{
+      width: 100px;
+      padding: 10px;
+  }
+  .dropdown ul li:nth-of-type(1) {
+      background-color: rgb(45, 8, 110);
+   }
+   .dropdown ul li:nth-of-type(2) {
+       background-color: rgb(64,85,131);
+    }
+.titlu{
+    color:white;
+}
+.titlu h1{
+    font-size:70px;
+    text-align: center;
+    margin-top:15px;
+}
+.studio{
+    color:white;
+}
+.studio p{
+    font-size:25px;
+    margin-top:20px;
+    padding-top:70px;
+
+}
+.coloane{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.imglee{
+    display: block;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+    width: 50%;
+}
+.textlee{
+    color:white;
+    font-size:25px;
+    margin-top:20px;
+    padding-top:70px;
+    padding-bottom:100px;
+
+}
+.titluu{
+    color:white;
+}
+.titluu h1{
+    font-size:50px;
+    text-align: center;
+    margin-top:60px;
+}
+.cariera{
+    color:white;
+    padding-bottom:100px;
+    
+}
+.cariera h3{
+    font-size:40px;
+}
+.cariera p{
+    font-size:25px;
+    margin-top:20px;
+    padding-top:70px;
+    text-align: center;
+
+}
+hr{
+    width:55%;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+/*  ecrane mai mici  */
+@media only screen and (max-width: 768px) {
+    .titlu h1, .titluu h1, .cariera h3 {
+        font-size: 25px;
+    }
+    .studio p, .textlee p, .cariera p {
+        font-size: 17px;
+    }
+    nav {
+        flex-direction: column;
+        padding: 2% 0;
+    }
+}
+.shield{
+
+    width: 10%;
+    animation-name: sh;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+@keyframes sh
+{
+    30%{
+        transform: rotate(360deg);
+    }
+    50%{
+        transform: scale(2,2)
+    }
+    70%{
+        transform: translateX(700%);
+    }
+    100%{
+        opacity: 0;
+    }
+}
